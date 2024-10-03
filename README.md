@@ -1,6 +1,11 @@
 # Code Note
 - A note taking app designed for personal use, now shared for everyone to utilize.
 - Initially created for personal note-taking, now open for others to benefit from.
+#### Text input mode:
+![Code Note](./public/assets/image.png)
+
+#### Readonly mode:
+![Code Note](./public/assets/image-2.png)
 
 ### Key Features
 - **Separate Text Input**: Create multiple text inputs.
