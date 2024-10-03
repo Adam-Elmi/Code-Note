@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Mate</title>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+                rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./prism-custom-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"
+        integrity="sha512-+BMamP0e7wn39JGL8nKAZ3yAQT2dL5oaXWr4ZYlTGkKOaoXM/Yj7c4oy50Ngz5yoUutAG17flueD4F6QpTlPng=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body class="relative">
+    <div class="w-full min-h-screen relative overflow-auto">
+        <aside id="sidebar" class="fixed top-0 left-0 bg-white w-[200px] h-screen overflow-y-auto border-r-2 shadow-md">
+            <button id="addBtn" class="fa-solid fa-pen-to-square absolute right-2 top-2 cursor-pointer "></button>
+            <div class="w-full min-h-[50px] border-b-2 border-slate-800 flex justify-center items-center flex-col mt-5">
+                <h3 class="cubano text-slate-600">Notes</h3>
+                <div class="w-full p-1">
+                    <input id="search" type="search" class="w-full roboto font-bold shadow-md border-[1.5px] p-2" placeholder="Search...">
+                </div>
+            </div>
+            <div>
+            <!-- Notes Bar Here -->
+             <div id="notes-wrapper" class="w-full overflow-y-auto"></div>
+            </div>
+        </aside>
+        <main id="main" class="w-[calc(100% - 200px)] h-screen ml-[200px] bg-white">
+            <div id="placeholder" class="w-full h-full flex justify-center items-center flex-col gap-5">
+                <img src="./assets/copy-book.png" alt="" width="200" height="200" class="max-w-full object-cover">
+                <h1 id="add-note-option-2" class="cubano mb-5 cursor-pointer hover:text-blue-600">Add Notes <span class="fa-solid fa-circle-plus"></span></h1>
+            </div>
+        </main>
+    </div>
+    <!-- For Next Version -->
+    <!-- <div id="shortcuts-container" class="hidden w-full min-h-screen justify-center items-center absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] bg-black bg-opacity-50">
+        <button id="hide-shortcuts" class="fa-solid fa-x text-white bg-blue-500 hover:bg-red-500 p-2 rounded-md text-[1.2rem] absolute top-5 right-5"></button>
+        <div class=" bg-white border border-gray-300 rounded-lg shadow-lg p-6 w-[22rem]  z-50">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Keyboard Shortcuts</h2>
+            <div class="space-y-2">
+                <div class="flex justify-between">
+                    <span class="font-mono font-medium">Shift + N</span>
+                    <span class="text-slate-500">Create new note section</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-mono font-medium">Shift + S</span>
+                    <span class="text-slate-500">Start searching</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-mono font-medium">Shift + T</span>
+                    <span class="text-slate-500">Create new text input</span>
+                </div>
+                <div class="flex justify-between gap-2">
+                    <span class="font-mono font-medium">Shift + K</span>
+                    <span class="text-slate-500">Show keyboard shortcuts</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-mono font-medium">Shift + E</span>
+                    <span class="text-slate-500">Toggle sidebar</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

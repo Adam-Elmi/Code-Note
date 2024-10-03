@@ -1,0 +1,158 @@
+@font-face {
+    font-family: "Cubano";
+    src: url("./fonts/Cubano-Regular.otf");
+}
+
+@font-face {
+    font-family: "Sofia-Pro";
+    src: url("./fonts/Cubano-Regular.otf");
+}
+
+body, html {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cubano {
+    font-family: "Cubano", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.sofia-pro {
+    font-family: "Sofia-Pro", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.headBar-container {
+    width: 300px;
+    max-width: 100%;
+    min-height: 40px;
+    border: 1.5px solid #1d1d1d;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.back-div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #1d1d1d;
+    z-index: -1; 
+}
+
+.headBar-content {
+    width: calc(100% - 20px);
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: "Cubano", sans-serif;
+    position: relative;
+    z-index: 3;
+}
+
+.fa-square-pen, .fa-trash {
+    width: 20px;
+    color: rgb(20, 42, 115);
+    cursor: pointer;
+}
+
+.input-con {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 99;
+    padding: 0 5px;
+}
+.edit-input {
+    width: 60%;
+    height: auto;
+    padding: 0 2px;
+    border: 1.5px solid skyblue
+}
+
+.save-btn {
+    width: 50px;
+    padding: 2.5px 5px;
+    background-color: rgb(0, 73, 184);
+    color: white;
+    font-weight: 400;
+}
+
+.size-input {
+    width: 40px;
+    max-width: 100%;
+    height: 100%;
+    padding: 0 2px;
+    border: 1.5px solid #ddd;
+}
+
+.note-bar {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
+.note-title {
+    font-family: "Sofia-Pro", sans-serif;
+    font-size: 0.9rem;
+}
+
+.roboto {
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+pre {
+    margin: 0 !important;
+}
+
+.hide-sidebar {
+    transition: opacity 0.5s ease, display 0.5s ease;
+    opacity: 0;
+    display: none;
+}
+
+#placeholder {
+    transition: opacity 0.5s ease, display 0.5s ease;
+    opacity: 1;
+    display: none;
+}
+
+.note-input {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#shortcuts-container {
+    transition: display 0.5s ease;
+}
+
+@media screen and (max-width: 420px) {
+    .title-section {
+        display: none;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "code-note",
+  "version": "1.0.0",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch"
+  },
+  "keywords": [
+    "Note-taking",
+    "App",
+    "Note",
+    "Developer tool",
+    "Tools"
+  ],
+  "author": "Adam Elmi",
+  "license": "MIT",
+  "description": "Simple note-taking app",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
