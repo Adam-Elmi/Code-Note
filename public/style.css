@@ -169,7 +169,7 @@ pre {
     border-color: #444; 
 }
 
-input {
+#search, .edit-input {
     color: black !important;
 }
 
