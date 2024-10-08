@@ -211,7 +211,10 @@ function createNote(note = {text : `Hello World ${counter}`, elementTitle : [], 
     const svgPath2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     svgPath2.setAttribute("d", "M21,38h-9.9c-0.6,0-1-0.4-1-1V15c0-0.6,0.4-1,1-1H21c0.6,0,1,0.4,1,1v22C22,37.6,21.6,38,21,38z");
     svgIcon.appendChild(svgPath1);
-    svgIcon.appendChild(svgPath2);    
+    svgIcon.appendChild(svgPath2); 
+    svgPath1.setAttribute('id', 'path-1');
+    svgPath2.setAttribute('id', 'path-2');
+    const theme = document.createElement('button');
     const copyRight = document.createElement('a');
 
     // Assign classes
@@ -230,14 +233,16 @@ function createNote(note = {text : `Hello World ${counter}`, elementTitle : [], 
     titleSection.className = 'cubano text-[1rem] title-section text-blue-500 min-w-[200px]';
     iconSection.className = 'flex gap-5 w-[500px] justify-end items-center flex-wrap overflow-hidden flex-wrap';
     iconSection.style.flexWrap = 'wrap';
+    theme.className = 'fa-solid fa-circle-half-stroke cursor-pointer p-2 hover:bg-[rgba(0,0,0,0.1)]';
 
     // Create icons for the main note
-    addNoteIcon.className = 'fa-solid fa-plus cursor-pointer p-2 hover:bg-blue-50 code-icon';
+    addNoteIcon.className = 'fa-solid fa-plus cursor-pointer p-2 hover:bg-[rgba(0,0,0,0.1)] code-icon';
     // keysIcon.className = 'fa-solid fa-keyboard cursor-pointer p-2 hover:bg-blue-50'; // For next version
     svgIcon.setAttribute('width', '34px');
     svgIcon.setAttribute('height', '34px');
     svgIcon.setAttribute('cursor', 'pointer');
-    svgIcon.classList.add('hover:bg-blue-50');
+    svgIcon.classList.add('hover:bg-[rgba(0,0,0,0.1)]');
+    svgIcon.classList.add('bg-white');
     svgIcon.classList.add('p-2');
     copyRight.className = 'text-slate-400 hover:text-blue-400 text-[0.8rem] font-semibold';
 
@@ -255,7 +260,7 @@ function createNote(note = {text : `Hello World ${counter}`, elementTitle : [], 
     titleSection.textContent = compriseTitle(note.text)[1];
 
     // Append icons to the icon section
-    iconSection.append(svgIcon, addNoteIcon, copyRight);
+    iconSection.append(svgIcon, theme, addNoteIcon, copyRight);
 
     // Append title and icon sections to noteTools
     noteTools.append(titleSection, iconSection);
@@ -406,6 +411,40 @@ function createNote(note = {text : `Hello World ${counter}`, elementTitle : [], 
         saveToLocal();
     }
 
+    // Dark mode
+    function updateSvgIcons() {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        const svgIcons = document.querySelectorAll('.icon');
+        
+        svgIcons.forEach(icon => {
+            if (isDarkMode) {
+                icon.classList.add('dark:fill-white');
+                icon.classList.remove('fill-black');
+                
+            } else {
+                icon.classList.add('fill-black');
+                icon.classList.remove('dark:fill-white');
+            }
+        });
+    };
+
+    theme.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if(document.body.classList.contains('dark-mode')) {
+            svgPath1.setAttribute('fill', "white")
+            svgPath2.setAttribute('fill', "white")
+        }
+        else {
+            svgPath1.setAttribute('fill', "black")
+            svgPath2.setAttribute('fill', "black")
+        }
+        // Store dark mode preference
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        updateSvgIcons();
+    });
+
+
     // Remove note bar
     noteClear.addEventListener('click', (event) => {
         const matchedValue = noteBar.children[2].children[0].value;
@@ -447,6 +486,33 @@ function check() {
 function addNote() {
     createNote();
     check();
+
+    if(document.body.classList.contains('dark-mode')) {
+        setTimeout(() => {
+            document.querySelectorAll('#path-1').forEach(path => {
+                console.log(path);
+                path.setAttribute('fill', "white");
+                path.setAttribute('fill', "white");
+            })
+            document.querySelectorAll('#path-2').forEach(path => {
+                path.setAttribute('fill', "white");
+                path.setAttribute('fill', "white");
+            })
+        }, 100)
+    }
+    else {
+        setTimeout(() => {
+            document.querySelectorAll('#path-1').forEach(path => {
+                console.log(path);
+                path.setAttribute('fill', "black");
+                path.setAttribute('fill', "black");
+            })
+            document.querySelectorAll('#path-2').forEach(path => {
+                path.setAttribute('fill', "black");
+                path.setAttribute('fill', "black");
+            })
+        }, 100)
+    }
 };
 
 // Initialize the add note button
@@ -501,6 +567,38 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('sidebar').classList.add('hide-sidebar');
         }
     }
+
+    // Load dark mode preference on page load
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+
+    if(document.body.classList.contains('dark-mode')) {
+        setTimeout(() => {
+            document.querySelectorAll('#path-1').forEach(path => {
+                console.log(path);
+                path.setAttribute('fill', "white");
+                path.setAttribute('fill', "white");
+            })
+            document.querySelectorAll('#path-2').forEach(path => {
+                path.setAttribute('fill', "white");
+                path.setAttribute('fill', "white");
+            })
+        }, 100)
+    }
+    else {
+        setTimeout(() => {
+            document.querySelectorAll('#path-1').forEach(path => {
+                path.setAttribute('fill', "black");
+                path.setAttribute('fill', "black");
+            })
+            document.querySelectorAll('#path-2').forEach(path => {
+                path.setAttribute('fill', "black");
+                path.setAttribute('fill', "black");
+            })
+        }, 100)
+    }
 });
 
 const searchInput = document.getElementById('search');
@@ -535,6 +633,3 @@ searchInput.addEventListener('input', function () {
 
 // hideBtn.addEventListener('click', hide);
 // shortcuts.addEventListener('click', hide)
-
-
-

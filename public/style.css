@@ -151,6 +151,28 @@ pre {
     transition: display 0.5s ease;
 }
 
+/* styles.css */
+.dark-mode {
+    background-color: #121212; 
+    color: #ffffff; 
+}
+
+.dark-mode .note-title {
+    color: #ffffff; 
+}
+
+.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+}
+
+.dark-mode .border-slate-200 {
+    border-color: #444; 
+}
+
+#search {
+    color: black !important;
+}
+
 @media screen and (max-width: 420px) {
     .title-section {
         display: none;
