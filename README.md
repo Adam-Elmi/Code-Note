@@ -18,5 +18,9 @@
 ### Contributing
 - **Open Contribution**: This project welcomes contributions to improve existing features or introduce new ones.
 
+### Changes
+- Initial release - 10/3/2024
+- Added dark mode - 10/8/2024
+
 ### Licensing
 - **MIT License**: Code Note is licensed under the MIT License, ensuring freedom to use, modify, and distribute.
